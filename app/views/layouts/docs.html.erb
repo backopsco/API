@@ -1,0 +1,76 @@
+<% language_tabs = ['ruby', 'shell'] %>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title> Scalus API Documentation </title>
+
+    <%= stylesheet_link_tag 'slate/screen', media: :screen %>
+    <%= stylesheet_link_tag 'slate/print', media: :print %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <% if true # search %>
+      <%= javascript_include_tag  "all" %>
+    <% else %>
+      <%= javascript_include_tag  "all_nosearch" %>
+    <% end %>
+
+    <% if language_tabs %>
+      <script>
+        $(function() {
+          setupLanguages(<%= raw language_tabs.map{ |lang| lang.is_a?(Hash) ? lang.keys.first : lang }.to_json %>);
+        });
+      </script>
+    <% end %>
+  </head>
+
+  <body class="index">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <%= image_tag('navbar.png') %>
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <%= image_tag "logo.png" %>
+      <% if language_tabs %>
+        <div class="lang-selector">
+          <% language_tabs.each do |lang| %>
+            <%= link_to lang, '#', data: { 'language-name' => lang } %>
+          <% end %>
+        </div>
+      <% end %>
+      <% if true # search %>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <% end %>
+      <div id="toc">
+      </div>
+      <ul class="toc-footer">
+        <li><%= link_to 'Sign Up for an account', 'http://go.scalus.com/register' %></li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <%= yield %>
+        <%# current_page.data.includes && current_page.data.includes.each do |include| %>
+          <%#= partial "includes/#{include}" %>
+        <%# end %>
+      </div>
+      <div class="dark-box">
+        <% if language_tabs %>
+          <div class="lang-selector">
+            <% language_tabs.each do |lang| %>
+              <%= link_to lang, '#', data: { "language-name" => lang } %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
