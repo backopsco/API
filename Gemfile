@@ -3,6 +3,7 @@ ruby '2.2.3'
 
 # HEROKU STUFF
 gem 'rails_12factor'
+gem 'pg'
 # END of HEROKU STUFF
 
 gem 'rouge',                  '~> 1.9.0'
@@ -13,7 +14,8 @@ gem 'therubyracer',           '~> 0.12.1', platforms: :ruby
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use mysql as the database for Active Record
-gem 'mysql2'
+# gem 'mysql2'
+
 # Use SCSS for stylesheets
 gem 'sass-rails',    '~> 5.0.4'
 gem 'compass-rails', '~> 2.0.5'
