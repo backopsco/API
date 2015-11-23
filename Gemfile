@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
+
+# HEROKU STUFF
+gem 'rails_12factor'
+# END of HEROKU STUFF
 
 gem 'rouge',                  '~> 1.9.0'
 gem 'redcarpet',              '~> 3.3.2'
@@ -14,7 +19,6 @@ gem 'sass-rails',    '~> 5.0.4'
 gem 'compass-rails', '~> 2.0.5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
