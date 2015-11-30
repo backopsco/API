@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Api by scalus</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Api</h1>
+        <p>The best way to get work done and keep people in sync.</p>
+        <p class="view"><a href="https://github.com/scalus/API">View the Project on GitHub <small>scalus/API</small></a></p>
+        <ul>
+          <li><a href="https://github.com/scalus/API/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/scalus/API/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/scalus/API">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="welcome-to-scaluss-api" class="anchor" href="#welcome-to-scaluss-api" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to Scalus's API</h2>
+
+<h3>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick start.</h3>
+
+<ul>
+<li>Signup for an account at <a href="http://go.scalus.com/register">http://go.scalus.com/register</a>
+</li>
+<li>Write down the <code>SUBDOMAIN</code> that you created (last field in the form)</li>
+<li>TODO REGISTER FOR A DEVELOPER ACCOUNT and get your CLIENT_ID &amp; CLIENT_SECRET</li>
+<li>
+<p>Connect to the API via oAuth (see ruby example below)</p>
+
+<p>client = OAuth2::Client.new( CLIENT_ID, 
+                             CLIENT_SECRET, 
+                             site:         '<a href="http://SUBDOMAIN.scalus.com">http://SUBDOMAIN.scalus.com</a>', 
+                             organization: 'SUBDOMAIN', 
+                             authorize_url: '/oauth2/authorize',
+                             token_url: '/oauth2/token')
+access_token = client.password.get_token('<a href="mailto:your_email@address.com">your_email@address.com</a>', 'YourPassword')
+access_token.token</p>
+</li>
+</ul>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/scalus">scalus</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
