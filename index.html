@@ -49,6 +49,21 @@
                                  token_url: '/oauth2/token')
     access_token = client.password.get_token('your_email@address.com', 'YourPassword')
     access_token.token
+    # Create a Task:
+    
+    task = access_token.post("/api/external/tasks", 
+                             headers: {'Content-Type' => 'application/vnd.api+json' }, 
+                             params:  { data: 
+                                        { type: "tasks", 
+                                          attributes: { title: 'test 12345', 'due-date' => '2015-12-04'}
+                                        }
+                                      }
+                            )
+    
+    # Get your first 20 tasks
+
+    task = access_token.get("/api/external/tasks")
+    
 </code></pre>
       </section>
     </div>
