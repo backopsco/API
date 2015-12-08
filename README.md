@@ -29,6 +29,10 @@ Scalus's API allows developers to create tasks within the scalus ecosystem.
         ]
 
 
+## Oauth Quickstart
+
+If you understand the basics of authenticating via oAuth just take a look at [the Quick Start guide](http://scalus.github.io/API/).
+
 ## Oauth Overview
 
 All developers need to register their application before getting started. A registered OAuth application is assigned a unique Client ID and Client Secret. The Client Secret should not be shared. You may create a personal access token for your own use or implement the web flow below to allow other users to authorize your application.
@@ -88,20 +92,33 @@ The access token allows you to make requests to the API on a behalf of a user.
 
     GET https://organization_slug.scalus.com/api/tasks?access_token=...
 
+#
 
-https://github.com/doorkeeper-gem/doorkeeper/wiki/Enable-Refresh-Token-Credentials
+## Command line oAuth Flow
 
+#### 1) Request access to Scalus with a username/password
+`
+     POST https://organization_slug.scalus.com/oauth/token
+     Parameters: {"client_id"=>".....", "client_secret"=>".....", "grant_type"=>"password", "password"=>"userPassword123", "username"=>"your@email.com"}
+`
 
-* GET       /oauth/authorize/:code
-* GET       /oauth/authorize
-* POST      /oauth/authorize
-* DELETE    /oauth/authorize
-* POST      /oauth/token
-* POST      /oauth/revoke
-* resources /oauth/applications
-* GET       /oauth/authorized_applications
-* DELETE    /oauth/authorized_applications/:id
-* GET       /oauth/token/info
+Parameters
+
+| Name | Type | Description  |
+| --------- | -------- | :------- |
+| **client_id** | string | The client ID on http://organization_slug.scalus.com/settings |
+| **client_secret** | string | The client SECRET on http://organization_slug.scalus.com/settings |
+| **grant_type** | string | Set to "password" |
+| **username** | string | The User's username.  |
+| **password** | string | The User's password.  |
+
+#### 2) Scalus returns an OAuth2 access token back
+
+Parameters
+
+| Name | Type | Description  |
+| --------- | -------- | :------- |
+| **token_type** | string | 'bearer' |
 
 ## Testing with OAuth2 gem
 
@@ -162,7 +179,7 @@ Request (application/json)
                 "title": "Thank you for looking at our API",
                 "description": "The best way to get work done and keep people in sync.",
                 "requester_id": 1,
-                "assignee_id": 1,
+                "assignee_id": 2,
                 "due_date": "10-25-2021",
         }
 
@@ -171,55 +188,72 @@ Request (application/json)
 Response 200 (application/json)
 
 ```
-{
-  "data": {
-    "type": "tasks",
-    "id": "19",
-    "attributes": {
-      "title": "Thank you for looking at our API",
-      "description": "The best way to get work done and keep people in sync.",
-      "requester_id": 1,
-      "assignee_id": 1,
-      "created_by": 2,
-      "due_date": "10-25-2021",
-      "status": "not_started",
-      "active_messages_count": 0,
-      "source": "api",
-      "created_at": "2015-09-19 20:59:55",
-      "closed_at": nil
-    },
-    "links": {
-      "self": "http://example.com/api/tasks/19"
-    },
-    "relationships": {
-      "messages": {
-        "links": {
-          "self": "http://organization_slug.scalus.com/api/tasks/19/messages"
-        },
-        "data": [
-          { "type": "messages", "id": "5" },
-          { "type": "messages", "id": "12" }
-        ]
-      },
-      "labels": {
-        "links": {
-          "self": "http://organization_slug.scalus.com/api/tasks/19/labels"
-        },
-        "data": [
-          { "type": "labels", "id": "5" }
-        ]
-      }
-    }
-  },
-  "included": [{
-    "type": "labels",
-    "id": "5",
-    "attributes": {
-      "name": "Milestone 1"
-    },
-    "links": {
-      "self": "http://example.com/api/labels/5"
-    }
-  }]
-}
+{"data"=>
+  {"id"=>"81405",
+   "type"=>"tasks",
+   "links"=>{"self"=>"http://hq.lvh.me:4000/api/external/tasks/81405"},
+   "attributes"=>
+    {"title"=>"Thank you for looking at our API",
+     "description"=>"The best way to get work done and keep people in sync.",
+     "created_at"=>"2015-12-10T12:43:50-08:00",
+     "updated_at"=>"2015-12-10T12:43:50-08:00",
+     "due_date"=>"10-25-2021",
+     "last_message"=>""},
+   "relationships"=>
+    {"assignee"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/assignee",
+         "related"=>"http://hq.lvh.me:4000/api/external/tasks/81405/assignee"},
+       "data"=>{"type"=>"users", "id"=>"1"}},
+     "creator"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/creator",
+         "related"=>"http://hq.lvh.me:4000/api/external/tasks/81405/creator"},
+       "data"=>{"type"=>"users", "id"=>"2"}},
+     "requester"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/requester",
+         "related"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/requester"},
+       "data"=>{"type"=>"users", "id"=>"2"}},
+     "tasklist"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/tasklist",
+         "related"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/tasklist"}},
+     "team"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/team",
+         "related"=>"http://hq.lvh.me:4000/api/external/tasks/81405/team"},
+       "data"=>nil},
+     "comments"=>
+      {"links"=>
+        {"self"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/relationships/comments",
+         "related"=>
+          "http://hq.lvh.me:4000/api/external/tasks/81405/comments"}}}},
+ "included"=>
+  [{"id"=>"1",
+    "type"=>"users",
+    "links"=>{"self"=>"http://hq.lvh.me:4000/api/external/users/1"},
+    "attributes"=>
+     {"first_name"=>"Mike",
+      "last_name"=>"Tria",
+      "email"=>"mike@scalus.com",
+      "kind"=>"firm",
+      "status"=>"active"}},
+   {"id"=>"2",
+    "type"=>"users",
+    "links"=>{"self"=>"http://hq.lvh.me:4000/api/external/users/2"},
+    "attributes"=>
+     {"first_name"=>"Kristen Koh",
+      "last_name"=>"Goldstein",
+      "email"=>"kristen@scalus.com",
+      "kind"=>"firm",
+      "status"=>"active"}}]}
 ```
