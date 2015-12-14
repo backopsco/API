@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
 
   def html
     return @markdown_html if @markdown_html
-    @markdown_html = markdown.render(markup || '*nothing* to Render')
+    @markdown_html = markdown.render(markup || '#Sorry this page is not available.')
   end
 
   private
