@@ -44,16 +44,17 @@
 
 <pre><code>    client = OAuth2::Client.new( CLIENT_ID, 
                                  CLIENT_SECRET, 
-                                 site:         'http://SUBDOMAIN.scalus.com', 
+                                 site:         'http://api.scalus.com', 
                                  organization: 'SUBDOMAIN', 
                                  authorize_url: '/oauth2/authorize',
                                  token_url: '/oauth2/token')
-    access_token = client.password.get_token('your_email@address.com', 'YourPassword')
+    access_token = client.password.get_token('your_email@address.com', 'YourPassword', 
+                                             headers: {'X-Scalus-organization' =>  'SUBDOMAIN'})
     access_token.token
+
     # Create a Task:
-    
     task = access_token.post("/api/external/tasks", 
-                             headers: {'Content-Type' => 'application/vnd.api+json' }, 
+                             headers: {'Content-Type' => 'application/vnd.api+json', 'accept' => 'version=1' }, 
                              params:  { data: 
                                         { type: "tasks", 
                                           attributes: { title: 'test 12345', 'due-date' => '2015-12-04'}
@@ -62,15 +63,13 @@
                             )
     
     # Get your first 20 tasks
-
-    task = access_token.get("/api/external/tasks")
+    task = access_token.get("/api/external/tasks", headers: {'accept' => 'version=1' })
     
 </code></pre>
       </section>
     </div>
     <footer>
       <p>Project maintained by <a href="https://github.com/scalus">scalus</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
     </footer>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
