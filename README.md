@@ -4,10 +4,87 @@ HOST: https://api.scalus.com/api/external/
 
 Scalus's API allows developers to create tasks within the scalus ecosystem.
 
+
+
+```
+###################################################################
+#  A Topic is a superclass that all Communications inherit from
+#
+#  A Communication Channel will accept a number of organizations_topics it wants communications for.
+#    eg.  A mobile Device will by default want to hear all communications.
+#         If the device adds a filter (NotificationFilter) they will not accept communications for
+#         That type of message.
+#
+#  --------------                                --------------                ------------------
+#  |  Org       |                                |Organizations|              |     Topic      |
+#  |            |-------------------------------<| Topic      |>--------------|                |
+#  |            |                                |            |               | medium         |
+#  |            |                                |            |               | message_type   |
+#  |            |                                |            |               | type           |
+#  |            |                                |            |               | name           |
+#  |            |                                |            |               | description    |
+#  --------------                                --------------                ------------------
+#        |                                             |
+#        |                                             |
+#       / \                                           / \
+#  --------------        ------------------        ------------------
+#  |  User      |        | Communication  |        |  Notification  |
+#  |            |-------<| Channel        |-------<|  Filters       |
+#  |            |        |                |        |                |
+#  |            |        | type           |        |                |
+#  |            |        | name           |        |                |
+#  |            |        | meta           |        |                |
+#  |            |        | options        |        |                |
+#  |            |        | -------------  |        |                |
+#  |            |        | medium (email) |        |                |
+#  --------------        ------------------        ------------------
+#
+###################################################################
+```
+
+```
+###################################################################
+#
+#  --------------         --------------                ------------------
+#  |  Org       |         | Tasklist   |               |     Topic      |
+#  |            |         |            |>--------------|                |
+#  |            |         | title      |               | medium         |
+#  |            |         |            |               | message_type   |
+#  |            |         |            |               | type           |
+#  |            |    /---<|            |               | name           |
+#  |            |   /     |            |               | description    |
+#  --------------  /      --------------                ------------------
+#        |        /             |                  ------------------------
+#        |       /              |                  |   Team               |
+#        |      /               |                  |sorta like a client   |
+#       / \    /               / \                 |or company that can't |
+#  --------------        ------------------        |see your work but you |
+#  |  User      |        | Task           |>-------|interact with them    |
+#  |            |-------<|                |        ------------------------
+#  |            |        |                |        |  Activity      |
+#  |            |        | title          |-------<|  Items         |
+#  |            |        | status         |        |                |
+#  |            |        | due_date       |        |                |
+#  |            |        |                |        ------------------
+#  |            |        |                |        ------------------
+#  |            |        |                |-------<|   Labels       |
+#  --------------        ------------------        |                |
+#                                 |                |                |
+#                                / \               ------------------
+#                        ------------------
+#                        |   Messages     |
+#                        |                |
+#                        |                |
+#                        ------------------
+###################################################################
+```
+
+
+
 ## Overview
 
-- All requests must set the accept header to include the 'Content-Type' headers to "application/vnd.api+json" 
-- The version of the API must be set in the Accept headers (currently version=1 is the only option). 
+- All requests must set the accept header to include the 'Content-Type' headers to "application/vnd.api+json"
+- The version of the API must be set in the Accept headers (currently version=1 is the only option).
 - Endpoints generally follow the jsonapi specifications.  http://jsonapi.org
 - If an endpoint has a relationship that you would like to be side-loaded you can use "include=relationship" in the query params for the GET request.  EX. `GET /api/external/tasks/1?include=messages`
 
@@ -24,11 +101,11 @@ paginated with the offset not the page number
 Parameter | Description
 --------- | -----------
 event_type | brief word that describes what triggered the change
-event_source | where the event was triggered (api, auto, email, webform) 
+event_source | where the event was triggered (api, auto, email, webform)
 from | original value
 to | new value
 secondary_attribute | ...
-target_title | this is the source's title if the source that changed has a title 
+target_title | this is the source's title if the source that changed has a title
 attribute_name | attribute that changed
 
 | related models |
@@ -290,11 +367,11 @@ response = RestClient.get 'https://api.scalus.com/api/external/email_channels/4'
       type: 'email_channels',
      "attributes"=>
       {
-			 "name"=>"My personal email",
+       "name"=>"My personal email",
        "email"=>"fred@test.com"
       }
     }
- 
+
 }
 
 ```
@@ -349,7 +426,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/mobile_channels/4
        "number"=>"315-555-1234"
       }
     }
- 
+
 }
 
 ```
@@ -709,7 +786,7 @@ Parameter | Description
 --------- | -----------
 body | text of the comment to display
 body\_markup | simple HTML markup of the comment to display
-internal | Boolean set to true if the message is only for messages that can only be seen by those within your organization 
+internal | Boolean set to true if the message is only for messages that can only be seen by those within your organization
 created\_at | timestamp when the message was created
 
 
@@ -733,7 +810,7 @@ Messages marked as external (and highlighted green) are the only messaged that c
 
 `GET https://api.scalus.com/api/external/messages?filter[internal]=false`
 
-Returns all the Messages related to the task 
+Returns all the Messages related to the task
 
 ```shell
 curl
@@ -752,7 +829,7 @@ client_id     = '4ea1b...'
 client_secret = 'a2982...'
 
 response = RestClient.get 'https://api.scalus.com/api/external/messages/?task_id=12', {
-  access_token: 'YOUR_ACCESS_TOKEN', 
+  access_token: 'YOUR_ACCESS_TOKEN',
   filter: { internal: 'false'}
 }
 
@@ -932,8 +1009,8 @@ response = RestClient.post 'https://api.scalus.com/api/external/messages', {
 Parameter | Description
 --------- | -----------
 name | Name of the topic to be filtered
-message\_type | type of message being sent (Ex. message_added) 
-medium |  The communication medium (Ex. email or mobile) 
+message\_type | type of message being sent (Ex. message_added)
+medium |  The communication medium (Ex. email or mobile)
 topic\_id | UID of the topic being filtered
 
 | related models |
@@ -1040,7 +1117,7 @@ client_secret = 'a2982...'
 
 response = RestClient.post 'https://api.scalus.com/api/external/notification_filters', {
   access_token: 'YOUR_ACCESS_TOKEN',
-   topic_id: 10, 
+   topic_id: 10,
    communication_channel_id: 2
 }
 
@@ -1061,8 +1138,8 @@ Organization's Topics are representations of the types of communications that ca
 Parameter | Description
 --------- | -----------
 name | Name of the topic to be filtered
-message\_type | type of message being sent (Ex. message_added) 
-medium |  The communication medium (Ex. email or mobile) 
+message\_type | type of message being sent (Ex. message_added)
+medium |  The communication medium (Ex. email or mobile)
 description | description of the topic
 topic\_id | UID of the topic being filtered
 
@@ -1778,7 +1855,7 @@ response = RestClient.delete 'https://api.scalus.com/api/external/tasks/8', {
 ```
 > The above command returns JSON structured like this:
 
-``` 
+```
 {"data"=>
   {"id"=>"8",
    "type"=>"tasks",
@@ -1955,7 +2032,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams/4', {
    "type"=>"teams",
    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/4"},
    "attributes"=>{
-     "name"=>"Company 4", 
+     "name"=>"Company 4",
      "slug"=>"testacme4",
      "status"=>"active"}
   }
@@ -1979,7 +2056,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams', {
   "team": {
     "name": "Team One",
     "slug": "team-one" # can not contain spaces
-  }    
+  }
 }
 
 ```
@@ -2009,7 +2086,7 @@ response = RestClient.put 'https://api.scalus.com/api/external/teams/4', {
   access_token: 'YOUR_ACCESS_TOKEN',
   "team": {
     "name": "Team 1"
-  }   
+  }
 }
 
 ```
@@ -2049,8 +2126,8 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4', {
    "type"=>"teams",
    "links"=>{"self"=>"/api/external/v1/teams/4"},
    "attributes"=>
-    {"name"=>"Company 5", 
-     "slug"=>"testacme5", 
+    {"name"=>"Company 5",
+     "slug"=>"testacme5",
      "status"=>"inactive"}}}
 ```
 
@@ -2083,14 +2160,14 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4/archiv
    "type"=>"teams",
    "links"=>{"self"=>"/api/external/v1/teams/4"},
    "attributes"=>
-    {"name"=>"Company 5", 
-     "slug"=>"testacme5", 
+    {"name"=>"Company 5",
+     "slug"=>"testacme5",
      "status"=>"archived"}}}
 ```
 
 # Notifications
 
-Notifications the user is involved with.  
+Notifications the user is involved with.
 
 paginated with the offset not the page number
 
@@ -2101,11 +2178,11 @@ paginated with the offset not the page number
 Parameter | Description
 --------- | -----------
 event_type | brief word that describes what triggered the change
-event_source | where the event was triggered (api, auto, email, webform) 
+event_source | where the event was triggered (api, auto, email, webform)
 from | original value
 to | new value
 secondary_attribute | ...
-target_title | this is the source's title if the source that changed has a title 
+target_title | this is the source's title if the source that changed has a title
 attribute_name | attribute that changed
 
 
