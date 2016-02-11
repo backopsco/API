@@ -13,7 +13,7 @@
   <tbody>
     <% @pages.each do |page| %>
       <tr>
-        <td><%= link_to page.name, admin_page_path(page) %></td>
+        <td style='padding:10px;'><%= link_to page.name, api_url(page) %></td>
         <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
       </tr>
     <% end %>
