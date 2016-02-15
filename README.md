@@ -134,49 +134,49 @@ response = RestClient.get 'https://api.scalus.com/api/external/activity_items', 
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  [{"id"=>"9",
-    "type"=>"activity_items",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/activity_items/9"},
-    "attributes"=>
-     {"event_type"=>"task_created",
-      "event_source"=>"webform",
-      "from"=>nil,
-      "to"=>nil,
-      "created_at"=>"2016-01-19T17:08:20-08:00",
-      "secondary_attribute"=>nil,
-      "target_title"=>nil,
-      "attribute_name"=>nil},
-    "relationships"=>
-     {"activity_itemable"=>
-       {"links"=>
-         {"self"=>
+{"data":
+  [{"id":"9",
+    "type":"activity_items",
+    "links":{"self":"https://api.scalus.com/api/external/v1/activity_items/9"},
+    "attributes":
+     {"event_type":"task_created",
+      "event_source":"webform",
+      "from":nil,
+      "to":nil,
+      "created_at":"2016-01-19T17:08:20-08:00",
+      "secondary_attribute":nil,
+      "target_title":nil,
+      "attribute_name":nil},
+    "relationships":
+     {"activity_itemable":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/activity_items/9/relationships/activity_itemable",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/activity_items/9/activity_itemable"}}}},
-   {"id"=>"7",
-    "type"=>"activity_items",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/activity_items/7"},
-    "attributes"=>
-     {"event_type"=>"task_created",
-      "event_source"=>"webform",
-      "from"=>nil,
-      "to"=>nil,
-      "created_at"=>"2016-01-19T17:08:20-08:00",
-      "secondary_attribute"=>nil,
-      "target_title"=>nil,
-      "attribute_name"=>nil},
-    "relationships"=>
-     {"activity_itemable"=>
-       {"links"=>
-         {"self"=>
+   {"id":"7",
+    "type":"activity_items",
+    "links":{"self":"https://api.scalus.com/api/external/v1/activity_items/7"},
+    "attributes":
+     {"event_type":"task_created",
+      "event_source":"webform",
+      "from":nil,
+      "to":nil,
+      "created_at":"2016-01-19T17:08:20-08:00",
+      "secondary_attribute":nil,
+      "target_title":nil,
+      "attribute_name":nil},
+    "relationships":
+     {"activity_itemable":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/activity_items/7/relationships/activity_itemable",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/activity_items/7/activity_itemable"}}}}],
- "links"=>
-  {"first"=>
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/activity_items?page%5Blimit%5D=20&page%5Boffset%5D=0",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/activity_items?page%5Blimit%5D=20&page%5Boffset%5D=0"}}
 ```
 
@@ -201,25 +201,25 @@ response = RestClient.get 'https://api.scalus.com/api/external/activity_items/4'
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"activity_items",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/activity_items/4"},
-   "attributes"=>
-    {"event_type"=>"task_created",
-     "event_source"=>"webform",
-     "from"=>nil,
-     "to"=>nil,
-     "created_at"=>"2016-01-19T17:13:45-08:00",
-     "secondary_attribute"=>nil,
-     "target_title"=>nil,
-     "attribute_name"=>nil},
-   "relationships"=>
-    {"activity_itemable"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"4",
+   "type":"activity_items",
+   "links":{"self":"https://api.scalus.com/api/external/v1/activity_items/4"},
+   "attributes":
+    {"event_type":"task_created",
+     "event_source":"webform",
+     "from":nil,
+     "to":nil,
+     "created_at":"2016-01-19T17:13:45-08:00",
+     "secondary_attribute":nil,
+     "target_title":nil,
+     "attribute_name":nil},
+   "relationships":
+    {"activity_itemable":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/activity_items/4/relationships/activity_itemable",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/activity_items/4/activity_itemable"}}}}}
 ```
 
@@ -270,25 +270,25 @@ response = RestClient.get 'https://api.scalus.com/api/external/communication_cha
 
 ```json
 
-{"data"=>
-  [{"id"=>"7",
-    "type"=>"email_channels",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/email_channels/7"},
-    "attributes"=>
-     {"name"=>"my best contact",
-      "identifier"=>"test@email.co",
-      "identifier_name"=>"email"}},
-   {"id"=>"9",
-    "type"=>"email_channels",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/email_channels/9"},
-    "attributes"=>
-     {"name"=>"My email",
-      "identifier"=>"test@email2.co",
-      "identifier_name"=>"email"}}],
- "links"=>
-  {"first"=>
+{"data":
+  [{"id":"7",
+    "type":"email_channels",
+    "links":{"self":"https://api.scalus.com/api/external/v1/email_channels/7"},
+    "attributes":
+     {"name":"my best contact",
+      "identifier":"test@email.co",
+      "identifier_name":"email"}},
+   {"id":"9",
+    "type":"email_channels",
+    "links":{"self":"https://api.scalus.com/api/external/v1/email_channels/9"},
+    "attributes":
+     {"name":"My email",
+      "identifier":"test@email2.co",
+      "identifier_name":"email"}}],
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/communication_channels?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/communication_channels?page%5Bnumber%5D=1&page%5Bsize%5D=20"}}
 
 ```
@@ -325,14 +325,14 @@ response = RestClient.get 'https://api.scalus.com/api/external/communication_cha
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"email_channels",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/email_channels/4"},
-   "attributes"=>
-    {"name"=>"My business Email",
-     "identifier"=>"test@email.co",
-     "identifier_name"=>"email"
+{"data":
+  {"id":"4",
+   "type":"email_channels",
+   "links":{"self":"https://api.scalus.com/api/external/v1/email_channels/4"},
+   "attributes":
+    {"name":"My business Email",
+     "identifier":"test@email.co",
+     "identifier_name":"email"
     }
   }
 }
@@ -362,13 +362,13 @@ client_secret = 'a2982...'
 
 response = RestClient.get 'https://api.scalus.com/api/external/email_channels/4', {
   access_token: 'YOUR_ACCESS_TOKEN'
-  "data"=>
+  "data":
     { id: 4,
       type: 'email_channels',
-     "attributes"=>
+     "attributes":
       {
-       "name"=>"My personal email",
-       "email"=>"fred@test.com"
+       "name":"My personal email",
+       "email":"fred@test.com"
       }
     }
 
@@ -380,14 +380,14 @@ response = RestClient.get 'https://api.scalus.com/api/external/email_channels/4'
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"email_channels",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/email_channels/4"},
-   "attributes"=>
-    {"name"=>"My personal email",
-     "identifier"=>"fred@test.com",
-     "identifier_name"=>"number"
+{"data":
+  {"id":"4",
+   "type":"email_channels",
+   "links":{"self":"https://api.scalus.com/api/external/v1/email_channels/4"},
+   "attributes":
+    {"name":"My personal email",
+     "identifier":"fred@test.com",
+     "identifier_name":"number"
     }
   }
 }
@@ -418,12 +418,12 @@ client_secret = 'a2982...'
 
 response = RestClient.get 'https://api.scalus.com/api/external/mobile_channels/4', {
   access_token: 'YOUR_ACCESS_TOKEN'
-  "data"=>
+  "data":
     { id: 4,
       type: 'mobile_channels',
-     "attributes"=>
-      {"name"=>"My cell Phone",
-       "number"=>"315-555-1234"
+     "attributes":
+      {"name":"My cell Phone",
+       "number":"315-555-1234"
       }
     }
 
@@ -435,14 +435,14 @@ response = RestClient.get 'https://api.scalus.com/api/external/mobile_channels/4
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"mobile_channels",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/mobile_channels/4"},
-   "attributes"=>
-    {"name"=>"My cell Phone",
-     "identifier"=>"315-555-1234",
-     "identifier_name"=>"number"
+{"data":
+  {"id":"4",
+   "type":"mobile_channels",
+   "links":{"self":"https://api.scalus.com/api/external/v1/mobile_channels/4"},
+   "attributes":
+    {"name":"My cell Phone",
+     "identifier":"315-555-1234",
+     "identifier_name":"number"
     }
   }
 }
@@ -476,15 +476,15 @@ response = RestClient.get 'https://api.scalus.com/api/external/communication_cha
 
 ```json
 
-{"data"=>
-  {"id"=>"8",
-   "type"=>"email_channels",
-   "links"=>{"self"=>"/api/external/v1/email_channels/8"},
-   "attributes"=>
-    {"name"=>"My Personal email",
-     "identifier"=>"test@email.co",
-     "identifier_name"=>"email",
-     "active"=>false
+{"data":
+  {"id":"8",
+   "type":"email_channels",
+   "links":{"self":"/api/external/v1/email_channels/8"},
+   "attributes":
+    {"name":"My Personal email",
+     "identifier":"test@email.co",
+     "identifier_name":"email",
+     "active":false
     }
   }
 }
@@ -521,17 +521,17 @@ response = RestClient.post 'https://api.scalus.com/api/external/file_uploads', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"4",
-   "type"=>"file_attachments",
-   "links"=>{"self"=>"/api/external/v1/file_attachments/4"},
-   "attributes"=>
-    {"doc_content_type"=>"image/jpg",
-     "doc_file_name"=>"test.jpg",
-     "token_id"=>
+{"data":
+  {"id":"4",
+   "type":"file_attachments",
+   "links":{"self":"/api/external/v1/file_attachments/4"},
+   "attributes":
+    {"doc_content_type":"image/jpg",
+     "doc_file_name":"test.jpg",
+     "token_id":
       "SGlCMkx6b2FDMHVnMEdJaXhCVUxnb3dHMzZHdTVZdXNITUtUL0hZOXVLcz0tLWJER25MM1pPMWJZWlNVUDlpa2RwM3c9PQ==--4cd8b53da6b12a7b5ec5e6afa83af33d2f84f34e",
-     "display_file_size"=>"1.75 KB",
-     "doc_url"=>
+     "display_file_size":"1.75 KB",
+     "doc_url":
       "https://s3.amazonaws.com/backops-dev/docs/4/test.jpg?1452287068"
     }
   }
@@ -600,19 +600,19 @@ response = RestClient.get 'https://api.scalus.com/api/external/labels', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"13",
-    "type"=>"labels",
-    "links"=>{"self"=>"http://firm-9.scalus.com/api/external/v1/labels/13"},
-    "attributes"=>{"name"=>"one", "status"=>"active"}},
-   {"id"=>"14",
-    "type"=>"labels",
-    "links"=>{"self"=>"http://firm-9.scalus.com/api/external/v1/labels/14"},
-    "attributes"=>{"name"=>"two", "status"=>"active"}}],
- "links"=>
-  {"first"=>
+{"data":
+  [{"id":"13",
+    "type":"labels",
+    "links":{"self":"http://firm-9.scalus.com/api/external/v1/labels/13"},
+    "attributes":{"name":"one", "status":"active"}},
+   {"id":"14",
+    "type":"labels",
+    "links":{"self":"http://firm-9.scalus.com/api/external/v1/labels/14"},
+    "attributes":{"name":"two", "status":"active"}}],
+ "links":
+  {"first":
     "http://firm-9.scalus.com/api/external/v1/labels?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "http://firm-9.scalus.com/api/external/v1/labels?page%5Bnumber%5D=1&page%5Bsize%5D=20"
   }
 }
@@ -649,11 +649,11 @@ response = RestClient.get 'https://api.scalus.com/api/external/labels/4', {
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"labels",
-   "links"=>{"self"=>"http://firm-3.scalus.com/api/external/v1/labels/4"},
-   "attributes"=>{"name"=>"Urgent", "status"=>"active"}
+{"data":
+  {"id":"4",
+   "type":"labels",
+   "links":{"self":"http://firm-3.scalus.com/api/external/v1/labels/4"},
+   "attributes":{"name":"Urgent", "status":"active"}
   }
 }
 ```
@@ -694,11 +694,11 @@ response = RestClient.post 'https://api.scalus.com/api/external/labels', {
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"labels",
-   "links"=>{"self"=>"http://firm-3.scalus.com/api/external/v1/labels/4"},
-   "attributes"=>{"name"=>"Low Priority", "status"=>"active"}
+{"data":
+  {"id":"4",
+   "type":"labels",
+   "links":{"self":"http://firm-3.scalus.com/api/external/v1/labels/4"},
+   "attributes":{"name":"Low Priority", "status":"active"}
   }
 }
 ```
@@ -740,11 +740,11 @@ response = RestClient.put 'https://api.scalus.com/api/external/labels/4', {
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"labels",
-   "links"=>{"self"=>"http://firm-3.scalus.com/api/external/v1/labels/4"},
-   "attributes"=>{"name"=>"Zero Priority", "status"=>"active"}
+{"data":
+  {"id":"4",
+   "type":"labels",
+   "links":{"self":"http://firm-3.scalus.com/api/external/v1/labels/4"},
+   "attributes":{"name":"Zero Priority", "status":"active"}
   }
 }
 ```
@@ -770,11 +770,11 @@ response = RestClient.delete 'https://api.scalus.com/api/external/labels/4', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"labels",
-   "links"=>{"self"=>"/api/external/v1/labels/4"},
-   "attributes"=>{"name"=>"one", "status"=>"deleted"}}}
+{"data":
+  {"id":"4",
+   "type":"labels",
+   "links":{"self":"/api/external/v1/labels/4"},
+   "attributes":{"name":"one", "status":"deleted"}}}
 ```
 
 # Messages
@@ -839,49 +839,49 @@ response = RestClient.get 'https://api.scalus.com/api/external/messages/?task_id
 
 
 ```json
-{"data"=>
-  [{"id"=>"3",
-    "type"=>"messages",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/messages/3"},
-    "attributes"=>
-     {"body"=>"Yabba Dabba Do",
-      "body_markup"=>"<p>Yabba Dabba Do</p>",
-      "internal"=>false,
-      "created_at"=>"2016-01-07T14:16:25-08:00"},
-    "relationships"=>
-     {"creator"=>
-       {"links"=>
-         {"self"=>
+{"data":
+  [{"id":"3",
+    "type":"messages",
+    "links":{"self":"https://api.scalus.com/api/external/v1/messages/3"},
+    "attributes":
+     {"body":"Yabba Dabba Do",
+      "body_markup":"<p>Yabba Dabba Do</p>",
+      "internal":false,
+      "created_at":"2016-01-07T14:16:25-08:00"},
+    "relationships":
+     {"creator":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/messages/3/relationships/creator",
-          "related"=>"https://api.scalus.com/api/external/v1/messages/3/creator"}},
-      "task"=>
-       {"links"=>
-         {"self"=>
+          "related":"https://api.scalus.com/api/external/v1/messages/3/creator"}},
+      "task":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/messages/3/relationships/task",
-          "related"=>"https://api.scalus.com/api/external/v1/messages/3/task"}}}},
-   {"id"=>"2",
-    "type"=>"messages",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/messages/2"},
-    "attributes"=>
-     {"body"=>"Is That you Fred?",
-      "body_markup"=>"<p>Is That you Fred?</p>",
-      "internal"=>false,
-      "created_at"=>"2016-01-07T14:16:25-08:00"},
-    "relationships"=>
-     {"creator"=>
-       {"links"=>
-         {"self"=>
+          "related":"https://api.scalus.com/api/external/v1/messages/3/task"}}}},
+   {"id":"2",
+    "type":"messages",
+    "links":{"self":"https://api.scalus.com/api/external/v1/messages/2"},
+    "attributes":
+     {"body":"Is That you Fred?",
+      "body_markup":"<p>Is That you Fred?</p>",
+      "internal":false,
+      "created_at":"2016-01-07T14:16:25-08:00"},
+    "relationships":
+     {"creator":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/messages/2/relationships/creator",
-          "related"=>"https://api.scalus.com/api/external/v1/messages/2/creator"}},
-      "task"=>
-       {"links"=>
-         {"self"=>
+          "related":"https://api.scalus.com/api/external/v1/messages/2/creator"}},
+      "task":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/messages/2/relationships/task",
-          "related"=>"https://api.scalus.com/api/external/v1/messages/2/task"}}}}],
- "links"=>
-  {"first"=>
+          "related":"https://api.scalus.com/api/external/v1/messages/2/task"}}}}],
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/messages?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/messages?page%5Bnumber%5D=1&page%5Bsize%5D=20"
   }
 }
@@ -916,26 +916,26 @@ response = RestClient.get 'https://api.scalus.com/api/external/messages/32/?task
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"32",
-   "type"=>"messages",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/messages/32"},
-   "attributes"=>
-    {"body"=>"Is That you Fred?",
-     "body_markup"=>"<p>Is That you Fred?</p>",
-     "internal"=>false,
-     "created_at"=>"2016-01-07T14:27:54-08:00"},
-   "relationships"=>
-    {"creator"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"32",
+   "type":"messages",
+   "links":{"self":"https://api.scalus.com/api/external/v1/messages/32"},
+   "attributes":
+    {"body":"Is That you Fred?",
+     "body_markup":"<p>Is That you Fred?</p>",
+     "internal":false,
+     "created_at":"2016-01-07T14:27:54-08:00"},
+   "relationships":
+    {"creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/messages/32/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/messages/32/creator"}},
-     "task"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/messages/32/creator"}},
+     "task":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/messages/32/relationships/task",
-         "related"=>"https://api.scalus.com/api/external/v1/messages/32/task"
+         "related":"https://api.scalus.com/api/external/v1/messages/32/task"
         }
       }
     }
@@ -975,26 +975,26 @@ response = RestClient.post 'https://api.scalus.com/api/external/messages', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"32",
-   "type"=>"messages",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/messages/32"},
-   "attributes"=>
-    {"body"=>"Is That you Fred?",
-     "body_markup"=>"<p>Is That you Fred?</p>",
-     "internal"=>false,
-     "created_at"=>"2016-01-07T14:27:54-08:00"},
-   "relationships"=>
-    {"creator"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"32",
+   "type":"messages",
+   "links":{"self":"https://api.scalus.com/api/external/v1/messages/32"},
+   "attributes":
+    {"body":"Is That you Fred?",
+     "body_markup":"<p>Is That you Fred?</p>",
+     "internal":false,
+     "created_at":"2016-01-07T14:27:54-08:00"},
+   "relationships":
+    {"creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/messages/32/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/messages/32/creator"}},
-     "task"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/messages/32/creator"}},
+     "task":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/messages/32/relationships/task",
-         "related"=>"https://api.scalus.com/api/external/v1/messages/32/task"
+         "related":"https://api.scalus.com/api/external/v1/messages/32/task"
         }
       }
     }
@@ -1049,55 +1049,55 @@ response = RestClient.get 'https://api.scalus.com/api/external/notification_filt
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"1",
-    "type"=>"notification_filters",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/notification_filters/1"},
-    "attributes"=>
-     {"topic_id"=>1,
-      "medium"=>"email",
-      "message_type"=>"message_added",
-      "name"=>"Message Added"},
-    "relationships"=>
-     {"organizations_topic"=>
-       {"links"=>
-         {"self"=>
+{"data":
+  [{"id":"1",
+    "type":"notification_filters",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/notification_filters/1"},
+    "attributes":
+     {"topic_id":1,
+      "medium":"email",
+      "message_type":"message_added",
+      "name":"Message Added"},
+    "relationships":
+     {"organizations_topic":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/notification_filters/1/relationships/organizations_topic",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/notification_filters/1/organizations_topic"}},
-      "communication_channel"=>
-       {"links"=>
-         {"self"=>
+      "communication_channel":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/notification_filters/1/relationships/communication_channel",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/notification_filters/1/communication_channel"}}}},
-   {"id"=>"2",
-    "type"=>"notification_filters",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/notification_filters/2"},
-    "attributes"=>
-     {"topic_id"=>10,
-      "medium"=>"mobile",
-      "message_type"=>"task_ready",
-      "name"=>"Task Ready"},
-    "relationships"=>
-     {"organizations_topic"=>
-       {"links"=>
-         {"self"=>
+   {"id":"2",
+    "type":"notification_filters",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/notification_filters/2"},
+    "attributes":
+     {"topic_id":10,
+      "medium":"mobile",
+      "message_type":"task_ready",
+      "name":"Task Ready"},
+    "relationships":
+     {"organizations_topic":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/notification_filters/2/relationships/organizations_topic",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/notification_filters/2/organizations_topic"}},
-      "communication_channel"=>
-       {"links"=>
-         {"self"=>
+      "communication_channel":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/notification_filters/2/relationships/communication_channel",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/notification_filters/2/communication_channel"}}}}],
- "links"=>
-  {"first"=>
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/notification_filters?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/notification_filters?page%5Bnumber%5D=1&page%5Bsize%5D=20"
   }
 }
@@ -1174,33 +1174,33 @@ response = RestClient.get 'https://api.scalus.com/api/external/organizations_top
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"4",
-    "type"=>"organizations_topics",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/organizations_topics/4"},
-    "attributes"=>
-     {"name"=>"Message Added",
-      "medium"=>"email",
-      "message_type"=>"message_added",
-      "description"=>
+{"data":
+  [{"id":"4",
+    "type":"organizations_topics",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/organizations_topics/4"},
+    "attributes":
+     {"name":"Message Added",
+      "medium":"email",
+      "message_type":"message_added",
+      "description":
        "Send notification to email when a message is added to a task that I follow.",
-      "topic_id"=>1}},
-   {"id"=>"8",
-    "type"=>"organizations_topics",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/organizations_topics/8"},
-    "attributes"=>
-     {"name"=>"Task Ready",
-      "medium"=>"mobile",
-      "message_type"=>"task_ready",
-      "description"=>
+      "topic_id":1}},
+   {"id":"8",
+    "type":"organizations_topics",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/organizations_topics/8"},
+    "attributes":
+     {"name":"Task Ready",
+      "medium":"mobile",
+      "message_type":"task_ready",
+      "description":
        "Send notification to device when a task made ready to work on and is assigned to me",
-      "topic_id"=>10}}],
- "links"=>
-  {"first"=>
+      "topic_id":10}}],
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/organizations_topics?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/organizations_topics?page%5Bnumber%5D=1&page%5Bsize%5D=20"
   }
 }
@@ -1237,18 +1237,18 @@ response = RestClient.get 'https://api.scalus.com/api/external/organizations_top
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"4",
-   "type"=>"organizations_topics",
-   "links"=>
-    {"self"=>"https://api.scalus.com/api/external/v1/organizations_topics/4"},
-   "attributes"=>
-    {"name"=>"Message Added",
-     "medium"=>"email",
-     "message_type"=>"message_added",
-     "description"=>
+{"data":
+  {"id":"4",
+   "type":"organizations_topics",
+   "links":
+    {"self":"https://api.scalus.com/api/external/v1/organizations_topics/4"},
+   "attributes":
+    {"name":"Message Added",
+     "medium":"email",
+     "message_type":"message_added",
+     "description":
       "Send notification to email when a message is added to a task that I follow.",
-     "topic_id"=>1
+     "topic_id":1
     }
   }
 }
@@ -1322,98 +1322,98 @@ qwerty
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"3",
-   "type"=>"tasks",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/tasks/3"},
-   "attributes"=>
-    {"title"=>"Sample Task2",
-     "created_at"=>"2016-02-09T13:02:12-08:00",
-     "updated_at"=>"2016-02-09T13:02:12-08:00",
-     "due_date"=>"2016-02-10",
-     "last_message"=>nil,
-     "team_id"=>7,
-     "assignee_id"=>8,
-     "requester_id"=>9,
-     "status"=>"not_started"},
-   "relationships"=>
-    {"assignee"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  [{"id":"3",
+   "type":"tasks",
+   "links":{"self":"https://api.scalus.com/api/external/v1/tasks/3"},
+   "attributes":
+    {"title":"Sample Task2",
+     "created_at":"2016-02-09T13:02:12-08:00",
+     "updated_at":"2016-02-09T13:02:12-08:00",
+     "due_date":"2016-02-10",
+     "last_message":nil,
+     "team_id":7,
+     "assignee_id":8,
+     "requester_id":9,
+     "status":"not_started"},
+   "relationships":
+    {"assignee":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/assignee",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
-       "data"=>{"type"=>"users", "id"=>"8"}},
-     "creator"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
+       "data":{"type":"users", "id":"8"}},
+     "creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/creator"},
-       "data"=>{"type"=>"users", "id"=>"10"}},
-     "requester"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/creator"},
+       "data":{"type":"users", "id":"10"}},
+     "requester":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/requester",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/requester"},
-       "data"=>{"type"=>"users", "id"=>"9"}},
-     "tasklist"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/requester"},
+       "data":{"type":"users", "id":"9"}},
+     "tasklist":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/tasklist",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
-     "team"=>
-      {"links"=>
-        {"self"=>"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/team"},
-       "data"=>{"type"=>"teams", "id"=>"7"}},
-     "followers"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
+     "team":
+      {"links":
+        {"self":"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/team"},
+       "data":{"type":"teams", "id":"7"}},
+     "followers":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/followers",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
-     "labels"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
+     "labels":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/labels",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
-     "activity_items"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
+     "activity_items":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/activity_items",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/tasks/3/activity_items"}},
-     "messages"=>
-      {"links"=>
-        {"self"=>
+     "messages":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/messages",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
- "included"=>
-  [{"id"=>"8",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/8"},
-    "attributes"=>
-     {"first_name"=>"Elise",
-      "last_name"=>"Fay",
-      "email"=>"alexa@ohara.com",
-      "kind"=>"firm",
-      "status"=>"active"}},
-   {"id"=>"10",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/10"},
-    "attributes"=>
-     {"first_name"=>"John",
-      "last_name"=>"Doe",
-      "email"=>"user3@backops.co",
-      "kind"=>"other",
-      "status"=>"active"}},
-   {"id"=>"9",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/9"},
-    "attributes"=>
-     {"first_name"=>"Theodora",
-      "last_name"=>"Schiller",
-      "email"=>"nigel.ankunding@rutherford.name",
-      "kind"=>"firm",
-      "status"=>"active"}
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
+ "included":
+  [{"id":"8",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/8"},
+    "attributes":
+     {"first_name":"Elise",
+      "last_name":"Fay",
+      "email":"alexa@ohara.com",
+      "kind":"firm",
+      "status":"active"}},
+   {"id":"10",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/10"},
+    "attributes":
+     {"first_name":"John",
+      "last_name":"Doe",
+      "email":"user3@backops.co",
+      "kind":"other",
+      "status":"active"}},
+   {"id":"9",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/9"},
+    "attributes":
+     {"first_name":"Theodora",
+      "last_name":"Schiller",
+      "email":"nigel.ankunding@rutherford.name",
+      "kind":"firm",
+      "status":"active"}
     }]
   ]
 }
@@ -1449,98 +1449,98 @@ response = RestClient.get 'https://api.scalus.com/api/external/tasks/3', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"3",
-   "type"=>"tasks",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/tasks/3"},
-   "attributes"=>
-    {"title"=>"Sample Task2",
-     "created_at"=>"2016-02-09T13:02:12-08:00",
-     "updated_at"=>"2016-02-09T13:02:12-08:00",
-     "due_date"=>"2016-02-10",
-     "last_message"=>nil,
-     "team_id"=>7,
-     "assignee_id"=>8,
-     "requester_id"=>9,
-     "status"=>"not_started"},
-   "relationships"=>
-    {"assignee"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"3",
+   "type":"tasks",
+   "links":{"self":"https://api.scalus.com/api/external/v1/tasks/3"},
+   "attributes":
+    {"title":"Sample Task2",
+     "created_at":"2016-02-09T13:02:12-08:00",
+     "updated_at":"2016-02-09T13:02:12-08:00",
+     "due_date":"2016-02-10",
+     "last_message":nil,
+     "team_id":7,
+     "assignee_id":8,
+     "requester_id":9,
+     "status":"not_started"},
+   "relationships":
+    {"assignee":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/assignee",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
-       "data"=>{"type"=>"users", "id"=>"8"}},
-     "creator"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
+       "data":{"type":"users", "id":"8"}},
+     "creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/creator"},
-       "data"=>{"type"=>"users", "id"=>"10"}},
-     "requester"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/creator"},
+       "data":{"type":"users", "id":"10"}},
+     "requester":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/requester",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/requester"},
-       "data"=>{"type"=>"users", "id"=>"9"}},
-     "tasklist"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/requester"},
+       "data":{"type":"users", "id":"9"}},
+     "tasklist":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/tasklist",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
-     "team"=>
-      {"links"=>
-        {"self"=>"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/team"},
-       "data"=>{"type"=>"teams", "id"=>"7"}},
-     "followers"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
+     "team":
+      {"links":
+        {"self":"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/team"},
+       "data":{"type":"teams", "id":"7"}},
+     "followers":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/followers",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
-     "labels"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
+     "labels":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/labels",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
-     "activity_items"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
+     "activity_items":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/activity_items",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/tasks/3/activity_items"}},
-     "messages"=>
-      {"links"=>
-        {"self"=>
+     "messages":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/messages",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
- "included"=>
-  [{"id"=>"8",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/8"},
-    "attributes"=>
-     {"first_name"=>"Elise",
-      "last_name"=>"Fay",
-      "email"=>"alexa@ohara.com",
-      "kind"=>"firm",
-      "status"=>"active"}},
-   {"id"=>"10",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/10"},
-    "attributes"=>
-     {"first_name"=>"John",
-      "last_name"=>"Doe",
-      "email"=>"user3@backops.co",
-      "kind"=>"other",
-      "status"=>"active"}},
-   {"id"=>"9",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/9"},
-    "attributes"=>
-     {"first_name"=>"Theodora",
-      "last_name"=>"Schiller",
-      "email"=>"nigel.ankunding@rutherford.name",
-      "kind"=>"firm",
-      "status"=>"active"}}]}
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
+ "included":
+  [{"id":"8",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/8"},
+    "attributes":
+     {"first_name":"Elise",
+      "last_name":"Fay",
+      "email":"alexa@ohara.com",
+      "kind":"firm",
+      "status":"active"}},
+   {"id":"10",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/10"},
+    "attributes":
+     {"first_name":"John",
+      "last_name":"Doe",
+      "email":"user3@backops.co",
+      "kind":"other",
+      "status":"active"}},
+   {"id":"9",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/9"},
+    "attributes":
+     {"first_name":"Theodora",
+      "last_name":"Schiller",
+      "email":"nigel.ankunding@rutherford.name",
+      "kind":"firm",
+      "status":"active"}}]}
 ```
 
 This endpoint retreives a specific task if the user is authorized.
@@ -1600,98 +1600,98 @@ response = RestClient.put 'https://api.scalus.com/api/external/tasks/22', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"3",
-   "type"=>"tasks",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/tasks/3"},
-   "attributes"=>
-    {"title"=>"Thank you for looking at our API, a second time",
-     "created_at"=>"2016-02-09T13:02:12-08:00",
-     "updated_at"=>"2016-02-09T13:02:12-08:00",
-     "due_date"=>"2021-10-25",
-     "last_message"=>nil,
-     "team_id"=>7,
-     "assignee_id"=>2,
-     "requester_id"=>1,
-     "status"=>"not_started"},
-   "relationships"=>
-    {"assignee"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"3",
+   "type":"tasks",
+   "links":{"self":"https://api.scalus.com/api/external/v1/tasks/3"},
+   "attributes":
+    {"title":"Thank you for looking at our API, a second time",
+     "created_at":"2016-02-09T13:02:12-08:00",
+     "updated_at":"2016-02-09T13:02:12-08:00",
+     "due_date":"2021-10-25",
+     "last_message":nil,
+     "team_id":7,
+     "assignee_id":2,
+     "requester_id":1,
+     "status":"not_started"},
+   "relationships":
+    {"assignee":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/assignee",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
-       "data"=>{"type"=>"users", "id"=>"8"}},
-     "creator"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
+       "data":{"type":"users", "id":"8"}},
+     "creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/creator"},
-       "data"=>{"type"=>"users", "id"=>"10"}},
-     "requester"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/creator"},
+       "data":{"type":"users", "id":"10"}},
+     "requester":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/requester",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/requester"},
-       "data"=>{"type"=>"users", "id"=>"9"}},
-     "tasklist"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/requester"},
+       "data":{"type":"users", "id":"9"}},
+     "tasklist":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/tasklist",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
-     "team"=>
-      {"links"=>
-        {"self"=>"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/team"},
-       "data"=>{"type"=>"teams", "id"=>"7"}},
-     "followers"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
+     "team":
+      {"links":
+        {"self":"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/team"},
+       "data":{"type":"teams", "id":"7"}},
+     "followers":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/followers",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
-     "labels"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
+     "labels":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/labels",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
-     "activity_items"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
+     "activity_items":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/activity_items",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/tasks/3/activity_items"}},
-     "messages"=>
-      {"links"=>
-        {"self"=>
+     "messages":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/messages",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
- "included"=>
-  [{"id"=>"8",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/8"},
-    "attributes"=>
-     {"first_name"=>"Elise",
-      "last_name"=>"Fay",
-      "email"=>"alexa@ohara.com",
-      "kind"=>"firm",
-      "status"=>"active"}},
-   {"id"=>"10",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/10"},
-    "attributes"=>
-     {"first_name"=>"John",
-      "last_name"=>"Doe",
-      "email"=>"user3@backops.co",
-      "kind"=>"other",
-      "status"=>"active"}},
-   {"id"=>"9",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/9"},
-    "attributes"=>
-     {"first_name"=>"Theodora",
-      "last_name"=>"Schiller",
-      "email"=>"nigel.ankunding@rutherford.name",
-      "kind"=>"firm",
-      "status"=>"active"}}]}
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
+ "included":
+  [{"id":"8",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/8"},
+    "attributes":
+     {"first_name":"Elise",
+      "last_name":"Fay",
+      "email":"alexa@ohara.com",
+      "kind":"firm",
+      "status":"active"}},
+   {"id":"10",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/10"},
+    "attributes":
+     {"first_name":"John",
+      "last_name":"Doe",
+      "email":"user3@backops.co",
+      "kind":"other",
+      "status":"active"}},
+   {"id":"9",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/9"},
+    "attributes":
+     {"first_name":"Theodora",
+      "last_name":"Schiller",
+      "email":"nigel.ankunding@rutherford.name",
+      "kind":"firm",
+      "status":"active"}}]}
 ```
 
 <h2 id="posttask"><span class='blue-btn'>POST</span> Task</h2>
@@ -1741,98 +1741,98 @@ response = RestClient.post 'https://api.scalus.com/api/external/tasks', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"3",
-   "type"=>"tasks",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/tasks/3"},
-   "attributes"=>
-    {"title"=>"Thank you for looking at our API",
-     "created_at"=>"2016-02-09T13:02:12-08:00",
-     "updated_at"=>"2016-02-09T13:02:12-08:00",
-     "due_date"=>"2021-10-25",
-     "last_message"=>nil,
-     "team_id"=>7,
-     "assignee_id"=>8,
-     "requester_id"=>1,
-     "status"=>"not_started"},
-   "relationships"=>
-    {"assignee"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"3",
+   "type":"tasks",
+   "links":{"self":"https://api.scalus.com/api/external/v1/tasks/3"},
+   "attributes":
+    {"title":"Thank you for looking at our API",
+     "created_at":"2016-02-09T13:02:12-08:00",
+     "updated_at":"2016-02-09T13:02:12-08:00",
+     "due_date":"2021-10-25",
+     "last_message":nil,
+     "team_id":7,
+     "assignee_id":8,
+     "requester_id":1,
+     "status":"not_started"},
+   "relationships":
+    {"assignee":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/assignee",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
-       "data"=>{"type"=>"users", "id"=>"8"}},
-     "creator"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/assignee"},
+       "data":{"type":"users", "id":"8"}},
+     "creator":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/creator",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/creator"},
-       "data"=>{"type"=>"users", "id"=>"10"}},
-     "requester"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/creator"},
+       "data":{"type":"users", "id":"10"}},
+     "requester":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/requester",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/requester"},
-       "data"=>{"type"=>"users", "id"=>"9"}},
-     "tasklist"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/requester"},
+       "data":{"type":"users", "id":"9"}},
+     "tasklist":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/tasklist",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
-     "team"=>
-      {"links"=>
-        {"self"=>"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/team"},
-       "data"=>{"type"=>"teams", "id"=>"7"}},
-     "followers"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/tasklist"}},
+     "team":
+      {"links":
+        {"self":"https://api.scalus.com/api/external/v1/tasks/3/relationships/team",
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/team"},
+       "data":{"type":"teams", "id":"7"}},
+     "followers":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/followers",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
-     "labels"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/followers"}},
+     "labels":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/labels",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
-     "activity_items"=>
-      {"links"=>
-        {"self"=>
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/labels"}},
+     "activity_items":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/activity_items",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/tasks/3/activity_items"}},
-     "messages"=>
-      {"links"=>
-        {"self"=>
+     "messages":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/tasks/3/relationships/messages",
-         "related"=>"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
- "included"=>
-  [{"id"=>"8",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/8"},
-    "attributes"=>
-     {"first_name"=>"Elise",
-      "last_name"=>"Fay",
-      "email"=>"alexa@ohara.com",
-      "kind"=>"firm",
-      "status"=>"active"}},
-   {"id"=>"10",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/10"},
-    "attributes"=>
-     {"first_name"=>"John",
-      "last_name"=>"Doe",
-      "email"=>"user3@backops.co",
-      "kind"=>"other",
-      "status"=>"active"}},
-   {"id"=>"9",
-    "type"=>"users",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/users/9"},
-    "attributes"=>
-     {"first_name"=>"Theodora",
-      "last_name"=>"Schiller",
-      "email"=>"nigel.ankunding@rutherford.name",
-      "kind"=>"firm",
-      "status"=>"active"}}]}```
+         "related":"https://api.scalus.com/api/external/v1/tasks/3/messages"}}}},
+ "included":
+  [{"id":"8",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/8"},
+    "attributes":
+     {"first_name":"Elise",
+      "last_name":"Fay",
+      "email":"alexa@ohara.com",
+      "kind":"firm",
+      "status":"active"}},
+   {"id":"10",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/10"},
+    "attributes":
+     {"first_name":"John",
+      "last_name":"Doe",
+      "email":"user3@backops.co",
+      "kind":"other",
+      "status":"active"}},
+   {"id":"9",
+    "type":"users",
+    "links":{"self":"https://api.scalus.com/api/external/v1/users/9"},
+    "attributes":
+     {"first_name":"Theodora",
+      "last_name":"Schiller",
+      "email":"nigel.ankunding@rutherford.name",
+      "kind":"firm",
+      "status":"active"}}]}```
 
 This endpoint creates a task.
 
@@ -1856,57 +1856,57 @@ response = RestClient.delete 'https://api.scalus.com/api/external/tasks/8', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"8",
-   "type"=>"tasks",
-   "links"=>{"self"=>"/api/external/v1/tasks/8"},
-   "attributes"=>
-    {"title"=>"Sample Task2",
-     "created_at"=>"2016-01-19T14:30:33-08:00",
-     "updated_at"=>"2016-01-19T14:30:34-08:00",
-     "due_date"=>"2016-01-20",
-     "last_message"=>nil,
-     "team_id"=>2,
-     "assignee_id"=>1,
-     "requester_id"=>2,
-     "status"=>"deleted"},
-   "relationships"=>
-    {"assignee"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/assignee",
-         "related"=>"/api/external/v1/tasks/8/assignee"}},
-     "creator"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/creator",
-         "related"=>"/api/external/v1/tasks/8/creator"}},
-     "requester"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/requester",
-         "related"=>"/api/external/v1/tasks/8/requester"}},
-     "tasklist"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/tasklist",
-         "related"=>"/api/external/v1/tasks/8/tasklist"}},
-     "team"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/team",
-         "related"=>"/api/external/v1/tasks/8/team"}},
-     "followers"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/followers",
-         "related"=>"/api/external/v1/tasks/8/followers"}},
-     "labels"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/labels",
-         "related"=>"/api/external/v1/tasks/8/labels"}},
-     "activity_items"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/activity_items",
-         "related"=>"/api/external/v1/tasks/8/activity_items"}},
-     "messages"=>
-      {"links"=>
-        {"self"=>"/api/external/v1/tasks/8/relationships/messages",
-         "related"=>"/api/external/v1/tasks/8/messages"}}}}}
+{"data":
+  {"id":"8",
+   "type":"tasks",
+   "links":{"self":"/api/external/v1/tasks/8"},
+   "attributes":
+    {"title":"Sample Task2",
+     "created_at":"2016-01-19T14:30:33-08:00",
+     "updated_at":"2016-01-19T14:30:34-08:00",
+     "due_date":"2016-01-20",
+     "last_message":nil,
+     "team_id":2,
+     "assignee_id":1,
+     "requester_id":2,
+     "status":"deleted"},
+   "relationships":
+    {"assignee":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/assignee",
+         "related":"/api/external/v1/tasks/8/assignee"}},
+     "creator":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/creator",
+         "related":"/api/external/v1/tasks/8/creator"}},
+     "requester":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/requester",
+         "related":"/api/external/v1/tasks/8/requester"}},
+     "tasklist":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/tasklist",
+         "related":"/api/external/v1/tasks/8/tasklist"}},
+     "team":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/team",
+         "related":"/api/external/v1/tasks/8/team"}},
+     "followers":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/followers",
+         "related":"/api/external/v1/tasks/8/followers"}},
+     "labels":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/labels",
+         "related":"/api/external/v1/tasks/8/labels"}},
+     "activity_items":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/activity_items",
+         "related":"/api/external/v1/tasks/8/activity_items"}},
+     "messages":
+      {"links":
+        {"self":"/api/external/v1/tasks/8/relationships/messages",
+         "related":"/api/external/v1/tasks/8/messages"}}}}}
 ```
 
 # Reset Password
@@ -1978,19 +1978,19 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"1",
-    "type"=>"teams",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/1"},
-    "attributes"=>{"name"=>"Company 1", "slug"=>"testacme1"}},
-   {"id"=>"3",
-    "type"=>"teams",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/3"},
-    "attributes"=>{"name"=>"Company 3", "slug"=>"testacme3"}}],
- "links"=>
-  {"first"=>
+{"data":
+  [{"id":"1",
+    "type":"teams",
+    "links":{"self":"https://api.scalus.com/api/external/v1/teams/1"},
+    "attributes":{"name":"Company 1", "slug":"testacme1"}},
+   {"id":"3",
+    "type":"teams",
+    "links":{"self":"https://api.scalus.com/api/external/v1/teams/3"},
+    "attributes":{"name":"Company 3", "slug":"testacme3"}}],
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/teams?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/teams?page%5Bnumber%5D=1&page%5Bsize%5D=20"
    }
 }
@@ -2027,14 +2027,14 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams/4', {
 
 ```json
 
-{"data"=>
-  {"id"=>"4",
-   "type"=>"teams",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/4"},
-   "attributes"=>{
-     "name"=>"Company 4",
-     "slug"=>"testacme4",
-     "status"=>"active"}
+{"data":
+  {"id":"4",
+   "type":"teams",
+   "links":{"self":"https://api.scalus.com/api/external/v1/teams/4"},
+   "attributes":{
+     "name":"Company 4",
+     "slug":"testacme4",
+     "status":"active"}
   }
 }
 ```
@@ -2063,11 +2063,11 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"teams",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/4"},
-   "attributes"=>{"name"=>"Team One", "slug"=>"team-one", "status"=>"active"}}}
+{"data":
+  {"id":"4",
+   "type":"teams",
+   "links":{"self":"https://api.scalus.com/api/external/v1/teams/4"},
+   "attributes":{"name":"Team One", "slug":"team-one", "status":"active"}}}
 ```
 
 
@@ -2094,11 +2094,11 @@ response = RestClient.put 'https://api.scalus.com/api/external/teams/4', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"teams",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/4"},
-   "attributes"=>{"name"=>"Team 1", "slug"=>"team-one", "status"=>"active"}}}
+{"data":
+  {"id":"4",
+   "type":"teams",
+   "links":{"self":"https://api.scalus.com/api/external/v1/teams/4"},
+   "attributes":{"name":"Team 1", "slug":"team-one", "status":"active"}}}
 ```
 
 <h2 id="deleteteam"><span class='red-btn'>DELETE</span> Team</h2>
@@ -2121,14 +2121,14 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"teams",
-   "links"=>{"self"=>"/api/external/v1/teams/4"},
-   "attributes"=>
-    {"name"=>"Company 5",
-     "slug"=>"testacme5",
-     "status"=>"inactive"}}}
+{"data":
+  {"id":"4",
+   "type":"teams",
+   "links":{"self":"/api/external/v1/teams/4"},
+   "attributes":
+    {"name":"Company 5",
+     "slug":"testacme5",
+     "status":"inactive"}}}
 ```
 
 <h2 id="archiveteam"><span class='red-btn'>ARCHIVE</span> Team</h2>
@@ -2155,14 +2155,14 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4/archiv
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"teams",
-   "links"=>{"self"=>"/api/external/v1/teams/4"},
-   "attributes"=>
-    {"name"=>"Company 5",
-     "slug"=>"testacme5",
-     "status"=>"archived"}}}
+{"data":
+  {"id":"4",
+   "type":"teams",
+   "links":{"self":"/api/external/v1/teams/4"},
+   "attributes":
+    {"name":"Company 5",
+     "slug":"testacme5",
+     "status":"archived"}}}
 ```
 
 # Notifications
@@ -2206,30 +2206,30 @@ response = RestClient.get 'https://api.scalus.com/api/external/notifications', {
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  [{"id"=>"1",
-    "type"=>"notifications",
-    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/notifications/1"},
-    "attributes"=>
-     {"event_type"=>"task_created",
-      "event_source"=>"webform",
-      "from"=>nil,
-      "to"=>nil,
-      "created_at"=>"2016-01-19T17:23:01-08:00",
-      "secondary_attribute"=>nil,
-      "target_title"=>nil,
-      "attribute_name"=>nil},
-    "relationships"=>
-     {"activity_itemable"=>
-       {"links"=>
-         {"self"=>
+{"data":
+  [{"id":"1",
+    "type":"notifications",
+    "links":{"self":"https://api.scalus.com/api/external/v1/notifications/1"},
+    "attributes":
+     {"event_type":"task_created",
+      "event_source":"webform",
+      "from":nil,
+      "to":nil,
+      "created_at":"2016-01-19T17:23:01-08:00",
+      "secondary_attribute":nil,
+      "target_title":nil,
+      "attribute_name":nil},
+    "relationships":
+     {"activity_itemable":
+       {"links":
+         {"self":
            "https://api.scalus.com/api/external/v1/notifications/1/relationships/activity_itemable",
-          "related"=>
+          "related":
            "https://api.scalus.com/api/external/v1/notifications/1/activity_itemable"}}}}],
- "links"=>
-  {"first"=>
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/notifications?page%5Blimit%5D=20&page%5Boffset%5D=0",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/notifications?page%5Blimit%5D=20&page%5Boffset%5D=0"}}
 ```
 
@@ -2254,25 +2254,25 @@ response = RestClient.get 'https://api.scalus.com/api/external/notifications/4',
 > The above command returns JSON structured like this:
 
 ```
-{"data"=>
-  {"id"=>"4",
-   "type"=>"notifications",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/notifications/4"},
-   "attributes"=>
-    {"event_type"=>"task_created",
-     "event_source"=>"webform",
-     "from"=>nil,
-     "to"=>nil,
-     "created_at"=>"2016-01-19T17:18:01-08:00",
-     "secondary_attribute"=>nil,
-     "target_title"=>nil,
-     "attribute_name"=>nil},
-   "relationships"=>
-    {"activity_itemable"=>
-      {"links"=>
-        {"self"=>
+{"data":
+  {"id":"4",
+   "type":"notifications",
+   "links":{"self":"https://api.scalus.com/api/external/v1/notifications/4"},
+   "attributes":
+    {"event_type":"task_created",
+     "event_source":"webform",
+     "from":nil,
+     "to":nil,
+     "created_at":"2016-01-19T17:18:01-08:00",
+     "secondary_attribute":nil,
+     "target_title":nil,
+     "attribute_name":nil},
+   "relationships":
+    {"activity_itemable":
+      {"links":
+        {"self":
           "https://api.scalus.com/api/external/v1/notifications/4/relationships/activity_itemable",
-         "related"=>
+         "related":
           "https://api.scalus.com/api/external/v1/notifications/4/activity_itemable"}}}}}
 
 ```
@@ -2311,23 +2311,23 @@ response = RestClient.get 'https://api.scalus.com/api/external/saved_searches', 
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  [{"id"=>"7",
-    "type"=>"saved_searches",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/saved_searches/7"},
-    "attributes"=>
-     {"title"=>"Get In progress", "params"=>{"status"=>["in_progress"]}}},
-   {"id"=>"9",
-    "type"=>"saved_searches",
-    "links"=>
-     {"self"=>"https://api.scalus.com/api/external/v1/saved_searches/9"},
-    "attributes"=>
-     {"title"=>"My completed", "params"=>{"status"=>["completed", "assignee_id"=>2 ]}}}],
- "links"=>
-  {"first"=>
+{"data":
+  [{"id":"7",
+    "type":"saved_searches",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/saved_searches/7"},
+    "attributes":
+     {"title":"Get In progress", "params":{"status":["in_progress"]}}},
+   {"id":"9",
+    "type":"saved_searches",
+    "links":
+     {"self":"https://api.scalus.com/api/external/v1/saved_searches/9"},
+    "attributes":
+     {"title":"My completed", "params":{"status":["completed", "assignee_id":2 ]}}}],
+ "links":
+  {"first":
     "https://api.scalus.com/api/external/v1/saved_searches?page%5Bnumber%5D=1&page%5Bsize%5D=20",
-   "last"=>
+   "last":
     "https://api.scalus.com/api/external/v1/saved_searches?page%5Bnumber%5D=1&page%5Bsize%5D=20"}}
 ```
 
@@ -2351,14 +2351,14 @@ response = RestClient.get 'https://api.scalus.com/api/external/saved_searches/4'
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"4",
-   "type"=>"saved_searches",
-   "links"=>
-    {"self"=>"https://api.scalus.com/api/external/v1/saved_searches/4"},
-   "attributes"=>
-    {"title"=>"John's Completed",
-     "params"=>{"status"=>["completed", "assignee_id"=>34]}}}}
+{"data":
+  {"id":"4",
+   "type":"saved_searches",
+   "links":
+    {"self":"https://api.scalus.com/api/external/v1/saved_searches/4"},
+   "attributes":
+    {"title":"John's Completed",
+     "params":{"status":["completed", "assignee_id":34]}}}}
 ```
 
 # Saved Search Tasks
@@ -2442,16 +2442,16 @@ response = RestClient.get 'https://api.scalus.com/api/external/users/32', {
 > The above command returns JSON structured like this:
 
 ```json
-{"data"=>
-  {"id"=>"32",
-   "type"=>"users",
-   "links"=>{"self"=>"https://api.scalus.com/api/external/users/32"},
-   "attributes"=>
-    {"first_name"=>"John",
-     "last_name"=>"Goldstein",
-     "email"=>"john.gold@scalus.com",
-     "kind"=>"firm",
-     "status"=>"active"}}}
+{"data":
+  {"id":"32",
+   "type":"users",
+   "links":{"self":"https://api.scalus.com/api/external/users/32"},
+   "attributes":
+    {"first_name":"John",
+     "last_name":"Goldstein",
+     "email":"john.gold@scalus.com",
+     "kind":"firm",
+     "status":"active"}}}
 ```
 
 <h2 id="putuser"><span class='blue-btn'>PUT</span> User</h2>
