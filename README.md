@@ -5,7 +5,6 @@ HOST: https://api.scalus.com/api/external/
 Scalus's API allows developers to create tasks within the scalus ecosystem.
 
 
-
 ```
 ###################################################################
 #  A Topic is a superclass that all Communications inherit from
@@ -79,12 +78,10 @@ Scalus's API allows developers to create tasks within the scalus ecosystem.
 ###################################################################
 ```
 
-
-
 ## Overview
 
-- All requests must set the accept header to include the 'Content-Type' headers to "application/vnd.api+json"
-- The version of the API must be set in the Accept headers (currently version=1 is the only option).
+- All requests must set the accept header to include the 'Content-Type' headers to "application/vnd.api+json" 
+- The version of the API must be set in the Accept headers (currently version=1 is the only option). 
 - Endpoints generally follow the jsonapi specifications.  http://jsonapi.org
 - If an endpoint has a relationship that you would like to be side-loaded you can use "include=relationship" in the query params for the GET request.  EX. `GET /api/external/tasks/1?include=messages`
 
@@ -101,12 +98,14 @@ paginated with the offset not the page number
 Parameter | Description
 --------- | -----------
 event_type | brief word that describes what triggered the change
-event_source | where the event was triggered (api, auto, email, webform)
+event_source | where the event was triggered (api, auto, email, webform) 
 from | original value
 to | new value
 secondary_attribute | ...
-target_title | this is the source's title if the source that changed has a title
+target_title | this is the source's title if the source that changed has a title 
 attribute_name | attribute that changed
+read | indicates if the notification has been read or not.  Please POST <a href="#posttactitityitem">read = true</a> if a user reads the activity item.
+metadata | a hash of more data
 
 | related models |
 | --------- |
@@ -146,7 +145,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/activity_items', 
       "created_at"=>"2016-01-19T17:08:20-08:00",
       "secondary_attribute"=>nil,
       "target_title"=>nil,
-      "attribute_name"=>nil},
+      "attribute_name"=>nil,
+      "read"=>true,
+      "resource_url"=>"http://firm-1.lvh.me:3000/api/external/tasks/3"},
     "relationships"=>
      {"activity_itemable"=>
        {"links"=>
@@ -213,7 +214,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/activity_items/4'
      "created_at"=>"2016-01-19T17:13:45-08:00",
      "secondary_attribute"=>nil,
      "target_title"=>nil,
-     "attribute_name"=>nil},
+     "attribute_name"=>nil,
+     "read"=>false,
+     "resource_url"=>"http://firm-1.lvh.me:3000/api/external/tasks/3"},
    "relationships"=>
     {"activity_itemable"=>
       {"links"=>
@@ -222,6 +225,62 @@ response = RestClient.get 'https://api.scalus.com/api/external/activity_items/4'
          "related"=>
           "https://api.scalus.com/api/external/v1/activity_items/4/activity_itemable"}}}}}
 ```
+
+
+
+<h2 id="posttactitityitem"><span class='blue-btn'>PUT</span>  Activity Item</h2>
+
+Use only to change the "read" status.
+
+`PUT https://api.scalus.com/api/external/activity_items/:id`
+
+```ruby
+require 'rest-client'
+require 'json'
+
+client_id     = '4ea1b...'
+client_secret = 'a2982...'
+
+response = RestClient.put 'https://api.scalus.com/api/external/activity_items/4', {
+  access_token: 'YOUR_ACCESS_TOKEN',
+  data: {
+    type: 'activity_items',
+    attributes: {
+      read:         'true'
+    }
+  }
+}
+
+```
+
+> The above command returns JSON structured like this:
+
+```
+{"data"=>
+  {"id"=>"4",
+   "type"=>"activity_items",
+   "links"=>{"self"=>"https://api.scalus.com/api/external/v1/activity_items/4"},
+   "attributes"=>
+    {"event_type"=>"task_created",
+     "event_source"=>"webform",
+     "from"=>nil,
+     "to"=>nil,
+     "created_at"=>"2016-01-19T17:13:45-08:00",
+     "secondary_attribute"=>nil,
+     "target_title"=>nil,
+     "attribute_name"=>nil,
+     "read"=>true,
+     "resource_url"=>"http://firm-1.lvh.me:3000/api/external/tasks/3"},
+   "relationships"=>
+    {"activity_itemable"=>
+      {"links"=>
+        {"self"=>
+          "https://api.scalus.com/api/external/v1/activity_items/4/relationships/activity_itemable",
+         "related"=>
+          "https://api.scalus.com/api/external/v1/activity_items/4/activity_itemable"}}}}}
+```
+
+
 
 # Communication Channels
 
@@ -367,11 +426,11 @@ response = RestClient.get 'https://api.scalus.com/api/external/email_channels/4'
       type: 'email_channels',
      "attributes"=>
       {
-       "name"=>"My personal email",
+			 "name"=>"My personal email",
        "email"=>"fred@test.com"
       }
     }
-
+ 
 }
 
 ```
@@ -426,7 +485,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/mobile_channels/4
        "number"=>"315-555-1234"
       }
     }
-
+ 
 }
 
 ```
@@ -449,12 +508,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/mobile_channels/4
 ```
 
 
+<h2 id="deletechannel"><span class='red-btn'>DELETE</span> Communication Channel Deactivation</h2>
 
-
-
-<h2 id="deletechannel"><span class='red-btn'>DELETE</span> Communication Channel</h2>
-
-`DELETE https://api.scalus.com/api/external/communication_channels/:id`
+`DELETE https://api.scalus.com/api/external/communication_channel_activations/:id`
 
 Inactivates a specific Communication Channel related to the currently logged in user.  After you inactivate a channel it will no longer receive notifications.
 
@@ -466,7 +522,7 @@ require 'json'
 client_id     = '4ea1b...'
 client_secret = 'a2982...'
 
-response = RestClient.get 'https://api.scalus.com/api/external/communication_channels/8', {
+response = RestClient.get 'https://api.scalus.com/api/external/communication_channel_activations/8', {
   access_token: 'YOUR_ACCESS_TOKEN'
 }
 
@@ -490,12 +546,49 @@ response = RestClient.get 'https://api.scalus.com/api/external/communication_cha
 }
 ```
 
+
+<h2 id="activatechannel"><span class='red-btn'>POST</span> Communication Channel Activation</h2>
+
+`POST https://api.scalus.com/api/external/communication_channel_activations/:id`
+
+Activates a specific Communication Channel related to the currently logged in user.  After you inactivate a channel it will no longer receive notifications.
+
+
+```ruby
+require 'rest-client'
+require 'json'
+
+client_id     = '4ea1b...'
+client_secret = 'a2982...'
+
+response = RestClient.get 'https://api.scalus.com/api/external/communication_channel_activations/8', {
+  access_token: 'YOUR_ACCESS_TOKEN'
+}
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+
+{"data"=>
+  {"id"=>"8",
+   "type"=>"email_channels",
+   "links"=>{"self"=>"/api/external/v1/email_channels/8"},
+   "attributes"=>
+    {"name"=>"My Personal email",
+     "identifier"=>"test@email.co",
+     "identifier_name"=>"email",
+     "active"=>true
+    }
+  }
+}
+```
 # File Uploads
 
 File uploads happen in a two set process.  The first step a file is uploaded and a token is returned as a responce.  Using the token\_id returned in the responce.  The file can then be attached to a <a href="#messages">message</a>.
 
 You can attach files of the following format to a task: PDF, JPG, PNG, .xls, .xlsx, .doc, .docx, and .txt
-
 
 
 <h2 id="postfile"><span class='blue-btn'>POST</span> File Upload</h2>
@@ -786,7 +879,7 @@ Parameter | Description
 --------- | -----------
 body | text of the comment to display
 body\_markup | simple HTML markup of the comment to display
-internal | Boolean set to true if the message is only for messages that can only be seen by those within your organization
+internal | Boolean set to true if the message is only for messages that can only be seen by those within your organization 
 created\_at | timestamp when the message was created
 
 
@@ -810,7 +903,7 @@ Messages marked as external (and highlighted green) are the only messaged that c
 
 `GET https://api.scalus.com/api/external/messages?filter[internal]=false`
 
-Returns all the Messages related to the task
+Returns all the Messages related to the task 
 
 ```shell
 curl
@@ -829,7 +922,7 @@ client_id     = '4ea1b...'
 client_secret = 'a2982...'
 
 response = RestClient.get 'https://api.scalus.com/api/external/messages/?task_id=12', {
-  access_token: 'YOUR_ACCESS_TOKEN',
+  access_token: 'YOUR_ACCESS_TOKEN', 
   filter: { internal: 'false'}
 }
 
@@ -1009,8 +1102,8 @@ response = RestClient.post 'https://api.scalus.com/api/external/messages', {
 Parameter | Description
 --------- | -----------
 name | Name of the topic to be filtered
-message\_type | type of message being sent (Ex. message_added)
-medium |  The communication medium (Ex. email or mobile)
+message\_type | type of message being sent (Ex. message_added) 
+medium |  The communication medium (Ex. email or mobile) 
 topic\_id | UID of the topic being filtered
 
 | related models |
@@ -1117,7 +1210,7 @@ client_secret = 'a2982...'
 
 response = RestClient.post 'https://api.scalus.com/api/external/notification_filters', {
   access_token: 'YOUR_ACCESS_TOKEN',
-   topic_id: 10,
+   topic_id: 10, 
    communication_channel_id: 2
 }
 
@@ -1138,8 +1231,8 @@ Organization's Topics are representations of the types of communications that ca
 Parameter | Description
 --------- | -----------
 name | Name of the topic to be filtered
-message\_type | type of message being sent (Ex. message_added)
-medium |  The communication medium (Ex. email or mobile)
+message\_type | type of message being sent (Ex. message_added) 
+medium |  The communication medium (Ex. email or mobile) 
 description | description of the topic
 topic\_id | UID of the topic being filtered
 
@@ -1297,6 +1390,63 @@ ID | The ID of the task to retrieve
 
 `GET https://api.scalus.com/api/external/tasks`
 
+Sideload the tasklist & assignee
+
+`GET https://api.scalus.com/api/external/tasks?include=tasklist,assignee`
+
+Filter by team_id
+
+`GET https://api.scalus.com/api/external/tasks?team_id=12`
+
+Filter by assignee_id
+
+`GET https://api.scalus.com/api/external/tasks?assignee_id=USER_ID`
+
+Filter by requester_id
+
+`GET https://api.scalus.com/api/external/tasks?requester_id=USER_ID`
+
+Filter by tasklist_template_id
+
+`GET https://api.scalus.com/api/external/tasks?tasklist_template_id=TASKLIST_TEMPLATE_ID`
+
+Filter by tasklist_id
+
+`GET https://api.scalus.com/api/external/tasks?tasklist_id=TASKLIST_ID`
+
+Filter by follower_ids
+
+`GET https://api.scalus.com/api/external/tasks?follower_ids=["USER1_ID","USER2_ID"]`
+
+Filter by due_date
+
+`GET https://api.scalus.com/api/external/tasks?due_date=DUE_DATE`
+
+Filter by project_due_date
+
+`GET https://api.scalus.com/api/external/tasks?project_due_date=PROJECT_DUE_DATE`
+
+Filter by launched_at
+
+`GET https://api.scalus.com/api/external/tasks?launched_at=LAUNCHED_AT`
+
+Filter by resolved_at
+
+`GET https://api.scalus.com/api/external/tasks?resolved_at=RESOLVED_AT`
+
+Filter due before 
+
+`GET https://api.scalus.com/api/external/tasks?due_date_end=DUE_BEFORE_OR_ON_THIS_DATE`
+
+if you want due date on or before 2015-10-30
+`~/tasks?due_date_end=2015-10-30`
+
+if you want due date on or after 2015-10-30
+`~/tasks?due_date_start=2015-10-30`
+
+if you want resolved on or before 2015-10-30
+`~/tasks?resolved_at_end=2015-10-30`
+
 ```shell
 curl
 -F access_token="YOUR_ACCESS_TOKEN"
@@ -1317,7 +1467,6 @@ response = RestClient.get 'https://api.scalus.com/api/external/tasks', {
 }
 
 ```
-qwerty
 
 > The above command returns JSON structured like this:
 
@@ -1559,7 +1708,6 @@ This endpoint retreives a specific task if the user is authorized.
 > Example Request
 >
 
-
 ```shell
 curl
 -F id="22" \
@@ -1573,7 +1721,6 @@ curl
 -H "Accept: application/vnd.api+json; version=1"
 -H "Content-Type: application/vnd.api+json"
 ```
-
 
 ```ruby
 require 'rest-client'
@@ -1597,6 +1744,7 @@ response = RestClient.put 'https://api.scalus.com/api/external/tasks/22', {
 }
 
 ```
+
 > The above command returns JSON structured like this:
 
 ```json
@@ -1705,7 +1853,6 @@ response = RestClient.put 'https://api.scalus.com/api/external/tasks/22', {
 > Example Request
 >
 
-
 ```shell
 curl
 -F type="tasks" \
@@ -1726,16 +1873,20 @@ require 'json'
 client_id     = '4ea1b...'
 client_secret = 'a2982...'
 
-response = RestClient.post 'https://api.scalus.com/api/external/tasks', {
-  access_token: 'YOUR_ACCESS_TOKEN',
-  "task": {
-    "title": "Thank you for looking at our API",
-    "requester_id": 1,
-    "assignee_id": 3,
-    "due_date": "2021-10-25",
-    "team_id": 7
-  }
-}
+response = RestClient.post 'https://api.scalus.com/api/external/tasks', 
+     {
+      access_token: 'YOUR_ACCESS_TOKEN',
+      data: {
+        type: 'tasks',
+        attributes: {
+          title:       'Thank you for looking at our API',
+          due_date:    "2016-02-20",
+          team_id:      7,
+          requester_id: 1,
+          assignee_id:  8
+        }
+      }
+    } 
 
 ```
 > The above command returns JSON structured like this:
@@ -1832,10 +1983,10 @@ response = RestClient.post 'https://api.scalus.com/api/external/tasks', {
       "last_name"=>"Schiller",
       "email"=>"nigel.ankunding@rutherford.name",
       "kind"=>"firm",
-      "status"=>"active"}}]}```
+      "status"=>"active"}}]} 
+```
 
 This endpoint creates a task.
-
 
 <h2 id="deletetask"><span class='red-btn'>DELETE</span> Task</h2>
 
@@ -1853,9 +2004,10 @@ response = RestClient.delete 'https://api.scalus.com/api/external/tasks/8', {
 }
 
 ```
+
 > The above command returns JSON structured like this:
 
-```
+``` 
 {"data"=>
   {"id"=>"8",
    "type"=>"tasks",
@@ -1909,10 +2061,168 @@ response = RestClient.delete 'https://api.scalus.com/api/external/tasks/8', {
          "related"=>"/api/external/v1/tasks/8/messages"}}}}}
 ```
 
+
+
+# Tasklist
+
+<h2 id="gettasklist"><span class='green-btn'>GET</span> Tasklist</h2>
+
+`GET https://api.scalus.com/api/external/tasklists/:id`
+
+Get tasklists and include tasks
+`GET https://api.scalus.com/api/external/tasklists/:id?include=tasks`
+
+```ruby
+require 'rest-client'
+require 'json'
+
+client_id     = '4ea1b...'
+client_secret = 'a2982...'
+
+response = RestClient.get 'https://api.scalus.com/api/external/taskslists/1', {
+  access_token: 'YOUR_ACCESS_TOKEN'
+}
+
+```
+
+> The above command returns JSON structured like this:
+
+```
+
+{"data"=>
+  {"id"=>"1",
+   "type"=>"tasklists",
+   "links"=>{"self"=>"http://test.host/api/external/v1/tasklists/1"},
+   "attributes"=>
+    {"title"=>"Project Number 1",
+     "description"=>"This is a project",
+     "status"=>"not_started",
+     "due_date"=>nil,
+     "completed_task_count"=>0,
+     "total_task_count"=>1},
+   "relationships"=>
+    {"tasks"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/tasks",
+         "related"=>"http://test.host/api/external/v1/tasklists/1/tasks"}},
+     "activity_items"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/activity_items",
+         "related"=>
+          "http://test.host/api/external/v1/tasklists/1/activity_items"}},
+     "team"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/team",
+         "related"=>"http://test.host/api/external/v1/tasklists/1/team"}}}}
+}
+
+```
+
+> This is a response if you `include=tasks`
+
+```
+{"data"=>
+  {"id"=>"1",
+   "type"=>"tasklists",
+   "links"=>{"self"=>"http://test.host/api/external/v1/tasklists/1"},
+   "attributes"=>
+    {"title"=>"Project Number 1",
+     "description"=>"This is a project",
+     "status"=>"not_started",
+     "due_date"=>nil,
+     "completed_task_count"=>0,
+     "total_task_count"=>1},
+   "relationships"=>
+    {"tasks"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/tasks",
+         "related"=>"http://test.host/api/external/v1/tasklists/1/tasks"},
+       "data"=>[{"type"=>"tasks", "id"=>"1"}]},
+     "activity_items"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/activity_items",
+         "related"=>
+          "http://test.host/api/external/v1/tasklists/1/activity_items"}},
+     "team"=>
+      {"links"=>
+        {"self"=>
+          "http://test.host/api/external/v1/tasklists/1/relationships/team",
+         "related"=>"http://test.host/api/external/v1/tasklists/1/team"}}}},
+ "included"=>
+  [{"id"=>"1",
+    "type"=>"tasks",
+    "links"=>{"self"=>"http://test.host/api/external/v1/tasks/1"},
+    "attributes"=>
+     {"title"=>"Sample Task2",
+      "created_at"=>"2016-02-18T17:43:52-08:00",
+      "updated_at"=>"2016-02-18T17:43:52-08:00",
+      "due_date"=>"2016-02-19",
+      "last_message"=>nil,
+      "team_id"=>1,
+      "assignee_id"=>1,
+      "requester_id"=>2,
+      "status"=>"not_started"},
+    "relationships"=>
+     {"assignee"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/assignee",
+          "related"=>"http://test.host/api/external/v1/tasks/1/assignee"}},
+      "creator"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/creator",
+          "related"=>"http://test.host/api/external/v1/tasks/1/creator"}},
+      "requester"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/requester",
+          "related"=>"http://test.host/api/external/v1/tasks/1/requester"}},
+      "tasklist"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/tasklist",
+          "related"=>"http://test.host/api/external/v1/tasks/1/tasklist"}},
+      "team"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/team",
+          "related"=>"http://test.host/api/external/v1/tasks/1/team"}},
+      "followers"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/followers",
+          "related"=>"http://test.host/api/external/v1/tasks/1/followers"}},
+      "labels"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/labels",
+          "related"=>"http://test.host/api/external/v1/tasks/1/labels"}},
+      "activity_items"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/activity_items",
+          "related"=>
+           "http://test.host/api/external/v1/tasks/1/activity_items"}},
+      "messages"=>
+       {"links"=>
+         {"self"=>
+           "http://test.host/api/external/v1/tasks/1/relationships/messages",
+          "related"=>"http://test.host/api/external/v1/tasks/1/messages"}}}}]}
+```
+
 # Reset Password
 
 Pinging the endpoint will send the user an email that they can use to reset their password in the web app from.
 
+AUTHENTICATION is NOT required to ping this endpoint.
+
+`https://api.scalus.com/api/external/reset_passwords`
 
 Parameter | type | Description
 --------- | ---------- | -----------
@@ -2032,7 +2342,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams/4', {
    "type"=>"teams",
    "links"=>{"self"=>"https://api.scalus.com/api/external/v1/teams/4"},
    "attributes"=>{
-     "name"=>"Company 4",
+     "name"=>"Company 4", 
      "slug"=>"testacme4",
      "status"=>"active"}
   }
@@ -2056,7 +2366,7 @@ response = RestClient.get 'https://api.scalus.com/api/external/teams', {
   "team": {
     "name": "Team One",
     "slug": "team-one" # can not contain spaces
-  }
+  }    
 }
 
 ```
@@ -2086,7 +2396,7 @@ response = RestClient.put 'https://api.scalus.com/api/external/teams/4', {
   access_token: 'YOUR_ACCESS_TOKEN',
   "team": {
     "name": "Team 1"
-  }
+  }   
 }
 
 ```
@@ -2126,8 +2436,8 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4', {
    "type"=>"teams",
    "links"=>{"self"=>"/api/external/v1/teams/4"},
    "attributes"=>
-    {"name"=>"Company 5",
-     "slug"=>"testacme5",
+    {"name"=>"Company 5", 
+     "slug"=>"testacme5", 
      "status"=>"inactive"}}}
 ```
 
@@ -2160,14 +2470,14 @@ response = RestClient.delete 'https://api.scalus.com/api/external/teams/4/archiv
    "type"=>"teams",
    "links"=>{"self"=>"/api/external/v1/teams/4"},
    "attributes"=>
-    {"name"=>"Company 5",
-     "slug"=>"testacme5",
+    {"name"=>"Company 5", 
+     "slug"=>"testacme5", 
      "status"=>"archived"}}}
 ```
 
 # Notifications
 
-Notifications the user is involved with.
+Notifications the user is involved with.  Notifications are Activity Items, but aggregated for user.
 
 paginated with the offset not the page number
 
@@ -2178,13 +2488,14 @@ paginated with the offset not the page number
 Parameter | Description
 --------- | -----------
 event_type | brief word that describes what triggered the change
-event_source | where the event was triggered (api, auto, email, webform)
+event_source | where the event was triggered (api, auto, email, webform) 
 from | original value
 to | new value
 secondary_attribute | ...
-target_title | this is the source's title if the source that changed has a title
+target_title | this is the source's title if the source that changed has a title 
 attribute_name | attribute that changed
-
+read | indicates if the notification has been read or not.  Please POST <a href="#posttactitityitem">read = true</a> if a user reads the notification.
+metadata | a hash of more data
 
 <h2 id="getnotifications"><span class='green-btn'>GET</span> Notifications</h2>
 
@@ -2218,7 +2529,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/notifications', {
       "created_at"=>"2016-01-19T17:23:01-08:00",
       "secondary_attribute"=>nil,
       "target_title"=>nil,
-      "attribute_name"=>nil},
+      "attribute_name"=>nil,
+      "read"=>false,
+      "resource_url"=>"http://firm-1.lvh.me:3000/api/external/tasks/3"},
     "relationships"=>
      {"activity_itemable"=>
        {"links"=>
@@ -2233,10 +2546,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/notifications', {
     "https://api.scalus.com/api/external/v1/notifications?page%5Blimit%5D=20&page%5Boffset%5D=0"}}
 ```
 
-
 <h2 id="getnotification"><span class='green-btn'>GET</span> Notification</h2>
 
-`GET https://api.scalus.com/api/external/activity_items/:id`
+`GET https://api.scalus.com/api/external/notifications/:id`
 
 ```ruby
 require 'rest-client'
@@ -2266,7 +2578,9 @@ response = RestClient.get 'https://api.scalus.com/api/external/notifications/4',
      "created_at"=>"2016-01-19T17:18:01-08:00",
      "secondary_attribute"=>nil,
      "target_title"=>nil,
-     "attribute_name"=>nil},
+     "attribute_name"=>nil,
+     "read"=>false,
+     "resource_url"=>"http://firm-1.lvh.me:3000/api/external/tasks/3"},
    "relationships"=>
     {"activity_itemable"=>
       {"links"=>
@@ -2409,10 +2723,17 @@ kind | kind of user, Can be "Team" or "Organization"
 send_task_notifications | Set to true if the user receives emails when events occur around tasks
 has_daily_digest | Set to true if the user receives a daily email digest
 created_at | time user was created in their organization’s time zone
+profile_image_url | returns the users profile image (not updatable via the API)
+password   |  not returned in the response but can be used to update the logged in user's password along with password_confirmation
+password_confirmation | not returned in the response but can be used to update the logged in user's password along with password
 
 <h2 id="getusers"><span class='green-btn'>GET</span> Users</h2>
 
 `GET https://api.scalus.com/api/external/users`
+
+`GET https://api.scalus.com/api/external/users?filter[kind]=company`
+
+`GET https://api.scalus.com/api/external/users?filter[kind]=firm `
 
 <h2 id="getuser"><span class='green-btn'>GET</span> User</h2>
 
@@ -2451,12 +2772,99 @@ response = RestClient.get 'https://api.scalus.com/api/external/users/32', {
      "last_name"=>"Goldstein",
      "email"=>"john.gold@scalus.com",
      "kind"=>"firm",
-     "status"=>"active"}}}
+     "status"=>"active",
+     "profile_image_url"=> 'http://www.tiny.url/image.jpg'}}}
+```
+
+
+
+
+
+<h2 id="currentuser"><span class='blue-btn'>GET</span> Current User</h2>
+
+`GET https://api.scalus.com/api/external/me`
+
+```ruby
+require 'rest-client'
+require 'json'
+
+client_id     = '4ea1b...'
+client_secret = 'a2982...'
+
+response = RestClient.get 'https://api.scalus.com/api/external/me', {
+  access_token: 'YOUR_ACCESS_TOKEN'
+}
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{"data"=>
+  {"id"=>"32",
+   "type"=>"users",
+   "links"=>{"self"=>"https://api.scalus.com/api/external/users/32"},
+   "attributes"=>
+    {"first_name"=>"John",
+     "last_name"=>"Goldstein",
+     "email"=>"john.gold@scalus.com",
+     "kind"=>"firm",
+     "status"=>"active",
+     "profile_image_url"=> 'http://www.tiny.url/image.jpg'}}}
 ```
 
 <h2 id="putuser"><span class='blue-btn'>PUT</span> User</h2>
 
-`PUT https://api.scalus.com/api/users/:id`
+`PUT https://api.scalus.com/api/external/users/:id`
+
+
+```shell
+curl
+-F access_token="YOUR_ACCESS_TOKEN"
+-X PUT https://api.scalus.com/api/external/users/32
+-H "Accept: application/vnd.api+json; version=1"
+-H "Content-Type: application/vnd.api+json"
+```
+
+```ruby
+require 'rest-client'
+require 'json'
+
+client_id     = '4ea1b...'
+client_secret = 'a2982...'
+
+response = RestClient.get 'https://api.scalus.com/api/external/users/32', {
+  access_token: 'YOUR_ACCESS_TOKEN',
+  "id": 32,
+  "type": "tasks",
+  "task": {
+    "first_name"=>"John",
+    "last_name"=>"Goldstein",
+    "email"=>"john.gold@scalus.com",
+    "password"=>              "ItsAGreatDay!2016",
+    "password_confirmation"=> "ItsAGreatDay!2016",
+		"status":       "active",
+    "profile_image_url"=> 'http://www.tiny.url/image.jpg'
+  }
+}
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{"data"=>
+  {"id"=>"32",
+   "type"=>"users",
+   "links"=>{"self"=>"https://api.scalus.com/api/external/users/32"},
+   "attributes"=>
+    {"first_name"=>"John",
+     "last_name"=>"Goldstein",
+     "email"=>"john.gold@scalus.com",
+     "kind"=>"firm",
+     "status"=>"active"}}}
+```
+
 
 <h2 id="deleteuser"><span class='red-btn'>DELETE</span> User</h2>
 
